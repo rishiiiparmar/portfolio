@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <head>
+    <title>Portfolio</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/flexslider.css" />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700"
+      rel="stylesheet"
+    />
+
+	<link rel="stylesheet" href="css/mobile-responsive.css">
+
+    <script>
+      let currentIndex = 0;
+      let mediaItems = [];
+
+      function openModal(media) {
+        mediaItems = media;
+        currentIndex = 0;
+        showMedia(currentIndex);
+        document.getElementById("modal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("modal-video").pause(); // Pause the video on close
+        document.getElementById("modal-video").src = ""; // Clear the video source
+      }
+
+      function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = mediaItems.length - 1;
+        if (currentIndex >= mediaItems.length) currentIndex = 0;
+        showMedia(currentIndex);
+      }
+
+      function showMedia(index) {
+        const img = document.getElementById("modal-image");
+        const video = document.getElementById("modal-video");
+        const mediaSrc = mediaItems[index];
+
+        if (mediaSrc.endsWith(".mp4")) {
+          img.style.display = "none";
+          video.style.display = "block";
+          video.src = mediaSrc;
+          video.play();
+        } else {
+          img.style.display = "block";
+          video.style.display = "none";
+          img.src = mediaSrc;
+        }
+      }
+    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+    <nav
+      class="navbar navbar-expand-lg site-navbar navbar-light bg-light"
+      id="pb-navbar"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-md-center"
+          id="navbarsExample09"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#section-home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section-portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section-resume">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section-about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="site-hero"
+      style="background-image: url(images/logo.png)"
+      id="section-home"
+      data-stellar-background-ratio="0.5"
+    >
+      <div class="container">
+        <div class="row intro-text align-items-center justify-content-center">
+          <div class="col-md-10 text-center pt-5">
+            <h1 class="site-heading site-animate">
+              Hello, I'm <strong class="d-block">Rishit Parmar</strong>
+            </h1>
+            <strong class="d-block text-white text-uppercase letter-spacing"
+              >3D Product Visualization Specialist</strong
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section -->
+
+    <section class="site-section" id="section-portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="section-heading text-center col-md-12">
+            <h2>Featured <strong>Portfolio</strong></h2>
+          </div>
+        </div>
+        <div class="filters">
+          <ul>
+            <li class="active" data-filter="*">All</li>
+            <li data-filter=".Product">Product</li>
+            <li data-filter=".Interior">Interior Design</li>
+            <li data-filter=".Video">Video</li>
+          </ul>
+        </div>
+
+        <div class="filters-content" id="portfolio">
+          <div class="row grid">
+            <!-- valentino image -->
+            <div class="single-portfolio col-sm-4 all Product">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/product/valentino.png"
+                    alt=""
+                    onclick="openModal(['images/product/valentino.png','images/product/valentino.jpg', 'images/product/valentino2.png','images/product/valentino3.png', 'images/product/valentino4.png','images/product/valentino5.png'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>Valentino perfume</h4>
+                <div class="cat">Product</div>
+              </div>
+            </div>
+            <!-- Living Room -->
+            <div class="single-portfolio col-sm-4 all Interior">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/interior-design/livingroom.png"
+                    alt=""
+                    onclick="openModal(['images/interior-design/livingroom.png','images/interior-design/vlivingroom.png'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>living room</h4>
+                <div class="cat">Interior Design</div>
+              </div>
+            </div>
+            <!-- bathroom -->
+            <div class="single-portfolio col-sm-4 all Interior">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/interior-design/bathroom.png"
+                    alt=""
+                    onclick="openModal(['images/interior-design/bathroom.png','images/interior-design/vbathroom.jpg'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>modern design bathroom</h4>
+                <div class="cat">Interior Design</div>
+              </div>
+            </div>
+            <!-- graffiti-spay -->
+            <div class="single-portfolio col-sm-4 all Product">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/product/graffiti-spay.png"
+                    alt=""
+                    onclick="openModal(['images/product/graffiti-spay.png','images/product/vgraffiti-spay.jpg'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>spray paint </h4>
+                <div class="cat">Product</div>
+              </div>
+            </div>
+            <!-- spay -->
+            <div class="single-portfolio col-sm-4 all Product">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/product/spay.png"
+                    alt=""
+                    onclick="openModal(['images/product/spay.png', 'images/product/spay2.png', 'images/product/spay3.png'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>lotion bottle</h4>
+                <div class="cat">Product</div>
+              </div>
+            </div>
+            
+            <!-- cream -->
+            <div class="single-portfolio col-sm-4 all Product">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/product/cream.png"
+                    alt=""
+                    onclick="openModal(['images/product/cream.png'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>moisturizer lotion</h4>
+                <div class="cat">Product</div>
+              </div>
+            </div>
+            <!-- perfume -->
+            <div class="single-portfolio col-sm-4 all Product">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/product/perfume.jpeg"
+                    alt=""
+                    onclick="openModal(['images/product/perfume.jpeg','images/product/perfume2.png','images/product/vperfume.jpg'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>Perfume Spray</h4>
+                <div class="cat">Product</div>
+              </div>
+            </div>
+            <!-- robot -->
+            <div class="single-portfolio col-sm-4 all Video">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/others/robot.png"
+                    alt=""
+                    onclick="openModal(['images/video/Robot-Animmation.mp4'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>Ai Robot</h4>
+                <div class="cat">Video</div>
+              </div>
+            </div>
+            <!-- bird -->
+            <div class="single-portfolio col-sm-4 all">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/others/bird.png"
+                    alt=""
+                    onclick="openModal(['images/others/bird.png','images/others/bird2.png','images/others/vbird.jpg'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>pigeon</h4>
+                <div class="cat">Bird</div>
+              </div>
+            </div>
+            <!-- house -->
+            <div class="single-portfolio col-sm-4 all">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/others/house.png"
+                    alt=""
+                    onclick="openModal(['images/others/house.png','images/others/house2.png','images/others/vhouse.jpg'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>Home</h4>
+                <div class="cat">exterior house</div>
+              </div>
+            </div>
+            <!-- krishna -->
+            <div class="single-portfolio col-sm-4 all">
+              <div class="relative">
+                <div class="thumb">
+                  <div class="overlay overlay-bg"></div>
+                  <img
+                    class="image img-fluid"
+                    src="images/others/krishna.png"
+                    alt=""
+                    onclick="openModal(['images/others/krishna.png','images/others/krishna2.png','images/others/krishna3.png'])"
+                  />
+                </div>
+              </div>
+              <div class="p-inner">
+                <h4>lord jagannath</h4>
+                <div class="cat">statue</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="modal" class="modal" style="display: none">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content1">
+              <img
+                id="modal-image"
+                src=""
+                alt=""
+				class="responsive-image"
+                
+              />
+              <video
+                id="modal-video"
+                controls
+                style="display: none; height: 90vh"
+              >
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+              <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="site-section" id="section-resume">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-5">
+            <div class="section-heading text-center">
+              <h2>My <strong>Resume</strong></h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="mb-5">Education</h2>
+            <div class="resume-item mb-4">
+              <span class="date"
+                ><span class="icon-calendar"></span> 2021– 2024</span
+              >
+              <h3>Bachelor of Computer Applications</h3>
+              <p>I learn about software coding and web developement.</p>
+              <span class="school">Saurashtra University</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2 class="mb-5">Experience</h2>
+
+            <div class="resume-item mb-4">
+              <span class="date"
+                ><span class="icon-calendar"></span> March 2024 - Present</span
+              >
+              <h3>Freelance 3D Product Artist</h3>
+              <p>
+                Six months in production visualization, turning ideas into
+                visual reality.
+              </p>
+              <span class="school">Upwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- .section -->
+
+    <section class="site-section pb-0" id="section-services">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="section-heading text-center">
+              <h2>My <strong>Software</strong></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <!-- <span class="icon-browser2"></span> -->
+                <img src="images/2.png" alt="" style="border-radius: 50%" />
+              </span>
+              <h3 class="mb-4">Adobe Photoshop</h3>
+              <!-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p> -->
+              <!-- <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p> -->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <!-- <span class="icon-presentation"></span> -->
+                <img src="images/1.png" alt="" style="border-radius: 50%" />
+              </span>
+              <h3 class="mb-4">Blender</h3>
+              <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p> -->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <img src="images/3.png" alt="" style="border-radius: 50%" />
+                <!-- <span class="icon-video2"></span> -->
+              </span>
+              <h3 class="mb-4">Adobe Illustator</h3>
+              <!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+						<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="site-section pb-0" id="section-services">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="section-heading text-center">
+              <h2>My <strong>Skill</strong></h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-cube"></i>
+              </span>
+              <h3 class="mb-4">3D Modeling</h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-paint-brush"></i>
+              </span>
+              <h3 class="mb-4">Texturing</h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-layer-group"></i>
+              </span>
+              <h3 class="mb-4">UV Wrapping</h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-camera-retro"></i>
+              </span>
+              <h3 class="mb-4">Rendering</h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-cogs"></i>
+              </span>
+              <h3 class="mb-4">Software Adaptability</h3>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 text-center mb-5">
+            <div
+              class="site-service-item site-animate"
+              data-animate-effect="fadeIn"
+            >
+              <span class="icon">
+                <i class="fas fa-laptop"></i>
+              </span>
+              <h3 class="mb-4">Software</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row mb-5">
+          <p class="col-12 text-center">
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | This website is made with
+            <i class="icon-heart text-danger" aria-hidden="true"></i> by Rishit
+            Parmar
+          </p>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <p>
+              <a
+                href="https://www.instagram.com/rishii3d?igsh=cXZ1djY4bmF0dTc0"
+                target="_blank"
+                class="social-item"
+                ><span class="icon-instagram2"></span
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/rishi-3d-573815249"
+                target="_blank"
+                class="social-item"
+                ><span class="icon-linkedin2"></span
+              ></a>
+              <a
+                href="mailto:rishirajput3035@gmail.com"
+                target="_blank"
+                class="social-item"
+                ><span class="icon-envelope"></span
+              ></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/vendor/jquery.easing.1.3.js"></script>
+
+    <script src="js/vendor/jquery.stellar.min.js"></script>
+    <script src="js/vendor/jquery.waypoints.min.js"></script>
+
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    .responsive-image {
+        height: 40vh; /* Adjust height for mobile */
+    }
+    .site-hero, .site-hero .row{
+        height: 40vh;
+        min-height: 0;
+    }
+    .site-hero:before{
+        border-bottom: 1px solid #ddd;
+    }
+
+    .filters ul li {
+        padding: 5px;
+    }
+    .site-section{
+        padding: 2em 0;
+    }
+}
